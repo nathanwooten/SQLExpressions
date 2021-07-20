@@ -151,6 +151,30 @@ class Expression {
 
 	}
 
+	public function hasExpressionKey( $index )
+	{
+	
+		return in_array( $index, $this->expressionKeys );
+
+	}
+
+	public function __toString()
+	{
+
+		$string = '';
+		
+		foreach ( $this->parts as $index => $part ) {
+			if ( ! $this->hasExpressionKey( $index ) ) {
+				$string .= $part;
+			} else {
+				$string .= '( ' . $this->getExpression( $index )->__toString() . ' )';
+			}
+		}
+
+		return $string;
+
+	}
+
 /*
 	public function __toString()
 	{
@@ -166,4 +190,5 @@ class Expression {
 
 	}
 */
+
 }
