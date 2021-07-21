@@ -1,2 +1,3 @@
 # SQLExpressions
-Simple SQL expression in PHP
+
+This package offers an alternative SQL expressions solution.
